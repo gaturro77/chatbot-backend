@@ -29,5 +29,3 @@ def chat(data: UserMessage):
 
     reply = completion.choices[0].message.content
     return {"reply": reply}
-
-update main.py add home route
