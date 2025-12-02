@@ -8,6 +8,10 @@ load_dotenv()
 
 app = FastAPI()
 
+@app.get("/")
+def home():
+    return {"status": "ok", "message": "API funcionando correctamente 🚀"}
+
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 class UserMessage(BaseModel):
@@ -25,3 +29,5 @@ def chat(data: UserMessage):
 
     reply = completion.choices[0].message.content
     return {"reply": reply}
+
+update main.py add home route
